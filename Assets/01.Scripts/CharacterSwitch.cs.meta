@@ -3,7 +3,11 @@ guid: ada91315612bd634a9aa53314273b95f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - character1: {instanceID: 0}
+  - character2: {instanceID: 0}
+  - bulga_effect: {fileID: 6452942748897166283, guid: b9a78953442855e4fb8ea0eaa6249708, type: 3}
+  - gumi_effect: {fileID: 8193911109876264979, guid: 16149ab133cdc26448eec41c14ec1883, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
