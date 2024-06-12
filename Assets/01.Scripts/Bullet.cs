@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -23,7 +24,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-
+            GetComponent<Rigidbody2D>().velocity = transform.right * bulletSpeed;
         }
     }
 
