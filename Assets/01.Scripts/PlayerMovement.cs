@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -37,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false; // 2중 점프 방지
             animator.SetTrigger("Jump");
         }
-        
 
         // 걷기 애니메이션 관리
         if (moveInput != 0 && isGrounded)
@@ -50,13 +48,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // 착지 애니메이션 상태 확인
-        if (isGrounded)
+        animator.SetBool("Grounded", isGrounded);
+
+        // 점프 애니메이션이 끝난 후 트리거 리셋
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            animator.SetBool("Grounded", true);
-        }
-        else
-        {
-            animator.SetBool("Grounded", false);
+            animator.ResetTrigger("Jump");
         }
     }
 

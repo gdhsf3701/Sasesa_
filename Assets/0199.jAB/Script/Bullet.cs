@@ -21,6 +21,10 @@ public class Bullet : MonoBehaviour
             Vector2 direction = (target.transform.position - transform.position).normalized;
             GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
+        else
+        {
+
+        }
     }
 
 }

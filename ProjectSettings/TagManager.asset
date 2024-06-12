@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Ground
   - Effect
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Gimik
   - Water
   - UI
-  - 
+  - Attack
   - 
   - 
   - 
@@ -42,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 59705573
     locked: 0
