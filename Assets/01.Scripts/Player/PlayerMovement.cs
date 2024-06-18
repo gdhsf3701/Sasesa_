@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     private bool isGrounded;
     private float moveSpeed = 4;
+    bool isRun = false;
+ 
 
     private void Awake()
     {
@@ -21,13 +23,18 @@ public class PlayerMovement : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(h * moveSpeed, rb.velocity.y);
 
-        if (h > 0)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.localScale = new Vector3(1, 1, 1); // 오른쪽
+            moveSpeed = 6;
+            animator.SetBool("Run", true);
+            animator.SetBool("Walk", false);
+            isRun = true;
         }
-        else if (h < 0)
+        else
         {
-            transform.localScale = new Vector3(-1, 1, 1); // 왼쪽
+            moveSpeed = 4;
+            animator.SetBool("Run", false);
+            isRun= false;
         }
 
         if (Input.GetButtonDown("Jump") && !animator.GetBool("Jump"))
@@ -36,16 +43,31 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // 걷기 애니메이션 관리
-        if (h != 0 && isGrounded)
+        if(isRun == false)
         {
-            animator.SetBool("Walk", true);
+            if (h != 0 && isGrounded)
+            {
+                animator.SetBool("Walk", true);
+            }
+            else
+            {
+                animator.SetBool("Walk", false);
+            }
         }
         else
         {
             animator.SetBool("Walk", false);
         }
+       
 
-        
+        if (h > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // 오른쪽
+        }
+        else if (h < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // 왼쪽
+        }
     }
     void Jump()
     {

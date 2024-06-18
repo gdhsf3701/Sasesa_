@@ -15,6 +15,7 @@ public class CharacterSwitch : MonoBehaviour
     private float switchCooldown = 1f;
     [SerializeField] private Camera mainCam;
     private CinemachineVirtualCamera CVcam;
+    private bool isJinHwa = false;
 
     void Start()
     {
@@ -45,17 +46,38 @@ public class CharacterSwitch : MonoBehaviour
         // 상태에 따라 활성화/비활성화 설정
         if (isCharacter1Active)
         {
-            character1.SetActive(false);
-            character2.SetActive(true);
-            Debug.Log("2");
-            ToGumi();
+            if(isJinHwa == false)
+            {
+                character1.SetActive(false);
+                character2.SetActive(true);
+                Debug.Log("2");
+                ToGumi();
+            }
+            else
+            {
+                character1.SetActive(false);
+                character2.SetActive(true);
+                Debug.Log("2");
+                ToGumi();
+            }
+            
         }
         else
         {
-            character1.SetActive(true);
-            character2.SetActive(false);
-            Debug.Log("1");
-            ToBulga();
+            if(isJinHwa == false)
+            {
+                character1.SetActive(true);
+                character2.SetActive(false);
+                Debug.Log("1");
+                ToBulga();
+            }
+            else
+            {
+                character1.SetActive(true);
+                character2.SetActive(false);
+                Debug.Log("1");
+                ToBulga();
+            }
         }
 
         // 캐릭터 활성화 상태 전환

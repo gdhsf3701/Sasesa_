@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 67336549408881763}
   - component: {fileID: 6331739724170572787}
   m_Layer: 1
-  m_Name: 32312
+  m_Name: GumiEffect
   m_TagString: Effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

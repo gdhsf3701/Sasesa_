@@ -42,6 +42,10 @@ public class Enemy : MonoBehaviour
             StartCoroutine(damage());
             currentHealth--;
         }
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            StartCoroutine(damage());
+        }
     }
 
     private void FixedUpdate()

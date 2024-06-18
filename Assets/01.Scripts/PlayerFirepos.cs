@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class PlayerFirepos : MonoBehaviour
 {
@@ -8,19 +9,50 @@ public class PlayerFirepos : MonoBehaviour
     public GameObject bulletFprepab;
     public GameObject firePos;
     public GameObject bulletFprepab2;
+    private bool isSkillChange;
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            GameObject bullet = Instantiate(bulletFprepab2);
-            bullet.transform.position = firePos.transform.position;
+          
+            if(isSkillChange == false)
+            {
+                isSkillChange = true;
+            }
+            else
+            {
+                isSkillChange = false;
+            }
         }
-        if (Input.GetButtonDown("Fire1"))
+        if(isSkillChange == false)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Bujuck();
+            }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Bujuck();
+            }
+        }
+        else
+        {
+            Sword();
+        }
+        
+
+        void Sword()
+        {
+
+        }
+        void Bujuck()
         {
             GameObject bullet = Instantiate(bulletFprepab);
             bullet.transform.position = firePos.transform.position;
         }
+
+
 
         int value = UnityEngine.Random.Range(0, 10);
         if (value < 3) // 30% È®·ü
